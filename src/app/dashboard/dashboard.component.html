@@ -1,0 +1,46 @@
+<mat-drawer-container class="example-container" autosize>
+    
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <h1 class="display-3">Menu Principal</h1>
+      <img width="50" height="50" src="">
+      <mat-nav-list>
+        <a
+        [routerLink]="link.path"
+        mat-list-item
+        *ngFor="let link of links"
+      >
+        <mat-icon *ngIf="link.icon">{{ link.icon }}</mat-icon> {{ link.title }}
+      </a>
+      <a
+        (click)="logout()"
+        mat-list-item
+      >
+        Cerrar sesión
+      </a>
+      </mat-nav-list>
+    
+      <div></div>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <mat-toolbar color="primary">
+        <button
+          (click)="drawer.toggle()"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"
+          >Primera Entrega Proyecto Final - Andres Cueva</span
+        >
+      </mat-toolbar>
+      <main class="main-1">
+        
+      </main>
+    </div>
+  </mat-drawer-container>
+
+
+<!-- <app-tablas></app-tablas> -->
