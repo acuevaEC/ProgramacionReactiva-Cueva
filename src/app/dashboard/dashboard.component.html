@@ -1,10 +1,16 @@
 <mat-drawer-container class="example-container" autosize>
-    
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <h1 class="display-3">Menu Principal</h1>
-      <img width="50" height="50" src="">
-      <mat-nav-list>
-        <a
+
+  <!-- SIDEBAR -->
+  <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+
+
+    <img width="50" height="50" src="https://media.licdn.com/dms/image/D4E03AQGy9YiobtWYIQ/profile-displayphoto-shrink_800_800/0/1677250815922?e=2147483647&v=beta&t=AJWVp-vZ0wBN9CuhJRtWzt36Ike4O4uv9Q61IK48aNI">
+
+    <p>{{ (authUser$ | async)?.email }}</p>
+
+
+    <mat-nav-list>
+      <a
         [routerLink]="link.path"
         mat-list-item
         *ngFor="let link of links"
@@ -17,30 +23,37 @@
       >
         Cerrar sesión
       </a>
-      </mat-nav-list>
-    
-      <div></div>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <mat-toolbar color="primary">
-        <button
-          (click)="drawer.toggle()"
-          mat-icon-button
-          class="example-icon"
-          aria-label="Example icon-button with menu icon"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="example-spacer"
-          >Primera Entrega Proyecto Final - Andres Cueva</span
-        >
-      </mat-toolbar>
-      <main class="main-1">
-        
-      </main>
-    </div>
-  </mat-drawer-container>
+    </mat-nav-list>
 
 
-<!-- <app-tablas></app-tablas> -->
+
+  </mat-drawer>
+
+  <!-- MI WRAPPER  -->
+  <div class="example-sidenav-content">
+    <!-- TOOLBAR  -->
+    <mat-toolbar color="primary">
+      <div class="flex justify-content-between">
+        <div>
+          <button
+            (click)="drawer.toggle()"
+            mat-icon-button
+            class="example-icon"
+            aria-label="Example icon-button with menu icon"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>Proyecto Andres Cueva</span>
+          <span class="example-spacer"></span>
+         
+        </div>
+        <p>{{ (authUser$ | async)?.nombre }}</p>
+      </div>
+    </mat-toolbar>
+
+    <!-- CONTENIDO -->
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-drawer-container>

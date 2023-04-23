@@ -1,17 +1,16 @@
 import { Component, OnDestroy } from '@angular/core';
+import { environment } from 'src/environments/environment.development'; 
 import { AuthService } from '../core/services/auth.service';
-import { environment } from 'src/environments/environment';
 import { Usuario } from '../core/models';
 import { Observable, Subject, Subscription, filter, map, takeUntil } from 'rxjs';
-import links from './nav-itmes'; 
+import links from './nav-items';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
-
 export class DashboardComponent implements OnDestroy {
   showFiller = false;
   isProd = environment.isProduction;
@@ -29,12 +28,6 @@ export class DashboardComponent implements OnDestroy {
 
     this.authUser$ = this.authService.obtenerUsuarioAutenticado()
 
-    // this.authService.obtenerUsuarioAutenticado()
-    //   .pipe(
-    //     // tomar hasta que el componente se destruya
-    //     takeUntil(this.destroyed$)
-    //   )
-    //   .subscribe((usuario) => this.authUser = usuario);
   }
 
   ngOnDestroy(): void {

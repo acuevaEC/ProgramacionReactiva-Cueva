@@ -10,6 +10,7 @@ export class AuthService {
   private authUser$ = new Subject<Usuario>();
 
   constructor() { }
+
   obtenerUsuarioAutenticado(): Observable<Usuario> {
     return this.authUser$.asObservable();
   }
@@ -17,5 +18,4 @@ export class AuthService {
   login(usuario: Usuario): void {
     this.authUser$.next(usuario);
   }
-
 }
