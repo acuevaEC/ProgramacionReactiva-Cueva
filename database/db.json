@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Andres",
+      "apellido": "Andres",
+      "email": "andres.cueva.c@gmail.com",
+      "password": "asdfasdf",
+      "token": "asfdjñlaksf%asdf345AasdfasdfasdfA4sadf",
+      "rol": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "Ramiro",
+      "apellido": "Perez",
+      "email": "rami.p.c@gmail.com",
+      "password": "andres.cueva.c@gmail.com",
+      "token": "asfdjñlakssdf345AasdfasdfasdfA4saasdfasdf334dsfdf",
+      "rol": "admin"
+    }
+  ]
+}
